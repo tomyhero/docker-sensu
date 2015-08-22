@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "cpu": {
+      "command": "/etc/sensu/plugins/check-cpu.sh",
+      "interval": 60,
+      "subscribers": [
+        "basic"
+      ],
+      "handler": "default"
+    },
+     "disk-usage": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-disk-usage.rb -t ext3,ext4",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "default"
+    },
+    "check-load": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-load.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "default"
+    },
+    "memory": {
+      "command": "/etc/sensu/plugins/check-memory.sh",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "default"
+    }
+  }
+}
