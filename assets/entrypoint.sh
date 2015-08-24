@@ -6,7 +6,7 @@ RABITMQ_USER_NAME=${RABITMQ_USER_NAME:-sensu}
 RABITMQ_USER_PASSWORD=${RABITMQ_USER_PASSWORD:-secret}
 
 GRAPHITE_HOST=${GRAPHITE_HOST:-localhost}
-GRAPHITE_PORT=${GRAPHITE_HOST:-localhost}
+GRAPHITE_PORT=${GRAPHITE_PORT:-2003}
 
 # Running RabbitMQ
 # ================
@@ -24,8 +24,8 @@ cp /app/assets/sensu/conf.d/* /etc/sensu/conf.d/
 
 sed s/test/basic/g -i /etc/sensu/conf.d/client.json
 
-sed s/{{GRAPHITE_HOST}}/$GRAPHITE_HOST/g -i /etc/sensu/conf.d/graphite_handler.json
-sed s/{{GRAPHITE_PORT}}/$GRAPHITE_PORT/g -i /etc/sensu/conf.d/graphite_handler.json
+sed s/{{GRAPHITE_HOST}}/$GRAPHITE_HOST/g -i /etc/sensu/conf.d/handler_graphite.json
+sed s/{{GRAPHITE_PORT}}/$GRAPHITE_PORT/g -i /etc/sensu/conf.d/handler_graphite.json
 
 
 # Running Redis

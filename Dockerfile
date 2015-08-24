@@ -100,7 +100,9 @@ RUN wget -O /etc/sensu/plugins/proc-status-metrics.rb https://raw.githubusercont
 
 # metrics-cloudwatch.rb
 
+
 RUN wget -O /etc/sensu/mutators/graphite.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/mutators/graphite.rb
+
 
 
 
