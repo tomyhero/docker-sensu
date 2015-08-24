@@ -71,7 +71,6 @@ RUN chown -R sensu:sensu /etc/sensu
 RUN wget -O /etc/sensu/conf.d/client.json http://sensuapp.org/docs/0.20/files/client.json
 RUN wget -O /etc/sensu/plugins/check-memory.sh http://sensuapp.org/docs/0.20/files/check-memory.sh
 RUN chmod +x /etc/sensu/plugins/check-memory.sh
-RUN chown -R sensu:sensu /etc/sensu
 
 
 # Install Plugins
@@ -85,7 +84,36 @@ RUN wget -O /etc/sensu/plugins/check-disk-usage.rb https://raw.githubusercontent
 RUN wget -O /etc/sensu/plugins/check-load.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-load-checks/master/bin/check-load.rb
 RUN wget -O /etc/sensu/plugins/check-memory.sh https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-memory-checks/master/bin/check-memory.sh
 
+
+#--
+
+RUN wget -O /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-pcnt-usage-metrics.rb
+RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb
+RUN wget -O /etc/sensu/plugins/memory-metrics-percent.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics-percent.rb
+RUN wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-capacity-metrics.rb
+RUN wget -O /etc/sensu/plugins/iostat-extended-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/iostat-extended-metrics.rb
+RUN wget -O /etc/sensu/plugins/netif-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/network/netif-metrics.rb
+RUN wget -O /etc/sensu/plugins/metrics-netstat-tcp.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/network/metrics-netstat-tcp.rb
+RUN wget -O /etc/sensu/plugins/proc-status-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/proc-status-metrics.rb
+
+
+
+# metrics-cloudwatch.rb
+
+RUN wget -O /etc/sensu/mutators/graphite.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/mutators/graphite.rb
+
+
+
+# MQ,API port
+EXPOSE 5672 4567
+
+
+
 RUN chmod 775 /etc/sensu/plugins/*
+RUN chown -R sensu:sensu /etc/sensu
+
+RUN apt-get install -y vim sysstat
+
 
 # MQ,API port
 EXPOSE 5672 4567

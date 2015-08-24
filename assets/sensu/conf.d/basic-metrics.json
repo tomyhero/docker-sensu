@@ -1,0 +1,68 @@
+{
+  "checks": {
+    "proc-status-metrics": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/proc-status-metrics.rb -u root",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "metrics-netstat-tcp": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-netstat-tcp.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "netif-metrics": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/netif-metrics.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "iostat-extended-metrics": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/iostat-extended-metrics.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "disk-capacity-metrics": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/disk-capacity-metrics.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "memory-metrics-percent": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/memory-metrics-percent.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "load-metrics": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/load-metrics.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "cpu-pcnt-usage-metrics": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    }
+    }
+}
