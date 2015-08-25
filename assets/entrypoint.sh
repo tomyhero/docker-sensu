@@ -21,6 +21,7 @@ rabbitmqctl set_permissions -p /sensu $RABITMQ_USER_NAME ".*" ".*" ".*"
 sed s/secret/$RABITMQ_USER_PASSWORD/g -i /etc/sensu/config.json
 
 cp /app/assets/sensu/conf.d/* /etc/sensu/conf.d/
+cp /app/assets/sensu/mutators/* /etc/sensu/mutators/
 
 sed s/test/basic/g -i /etc/sensu/conf.d/client.json
 
