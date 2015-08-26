@@ -118,11 +118,8 @@ RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com
 # does not work 
 # RUN wget -O /etc/sensu/mutators/graphite.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/mutators/graphite.rb
 
-
-
-# MQ,API port
-EXPOSE 5672 4567
-
+# Nginx 
+RUN wget -O /etc/sensu/plugins/metrics-nginx.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-nginx/master/bin/metrics-nginx.rb
 
 
 RUN chmod 775 /etc/sensu/plugins/*

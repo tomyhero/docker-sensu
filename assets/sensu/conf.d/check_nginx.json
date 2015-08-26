@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "metrics-nginx": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-nginx.rb -u http://localhost/nginx_status",
+      "subscribers": [
+        "nginx"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    }
+    }
+}
