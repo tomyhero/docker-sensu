@@ -1,41 +1,16 @@
 {
   "checks": {
-    "metrics-netstat-tcp": {
+// CPU
+    "cpu-pcnt-usage-metrics": {
       "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-netstat-tcp.rb",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb",
       "subscribers": [
         "basic"
       ],
       "interval": 60,
       "handler": "graphite"
     },
-    "netif-metrics": {
-      "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/netif-metrics.rb",
-      "subscribers": [
-        "basic"
-      ],
-      "interval": 60,
-      "handler": "graphite"
-    },
-    "iostat-extended-metrics": {
-      "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/iostat-extended-metrics.rb",
-      "subscribers": [
-        "basic"
-      ],
-      "interval": 60,
-      "handler": "graphite"
-    },
-    "disk-capacity-metrics": {
-      "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/disk-capacity-metrics.rb",
-      "subscribers": [
-        "basic"
-      ],
-      "interval": 60,
-      "handler": "graphite"
-    },
+// Memory  
     "memory-metrics-percent": {
       "type": "metric",
       "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/memory-metrics-percent.rb",
@@ -45,18 +20,78 @@
       "interval": 60,
       "handler": "graphite"
     },
-    "load-metrics": {
+    "memory-metrics": {
       "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/load-metrics.rb",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/memory-metrics.rb",
       "subscribers": [
         "basic"
       ],
       "interval": 60,
       "handler": "graphite"
     },
-    "cpu-pcnt-usage-metrics": {
+// Disk
+    "disk-capacity-metrics": {
       "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/disk-capacity-metrics.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+/*
+    "metrics-disk": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-disk.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "metrics-disk-usage": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-disk-usage.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+*/
+// IO
+    "iostat-extended-metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/iostat-extended-metrics.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+// NETWORK
+    "metrics-netif": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-netif.rb --scheme `hostname`.net",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "metrics-netstat-tcp": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-netstat-tcp.rb",
+      "subscribers": [
+        "basic"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+// Load Average
+    "load-metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/load-metrics.rb",
       "subscribers": [
         "basic"
       ],

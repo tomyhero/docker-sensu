@@ -87,23 +87,36 @@ RUN wget -O /etc/sensu/plugins/check-memory.sh https://raw.githubusercontent.com
 
 #--
 
+# CPU
 RUN wget -O /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-pcnt-usage-metrics.rb
-RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb
+
+# MEMORY
 RUN wget -O /etc/sensu/plugins/memory-metrics-percent.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics-percent.rb
+RUN wget -O /etc/sensu/plugins/memory-metrics.rb  https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb
+
+# DISK
 RUN wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-capacity-metrics.rb
+#RUN wget -O /etc/sensu/plugins/metrics-disk-usage.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-disk-checks/master/bin/metrics-disk-usage.rb
+#RUN wget -O /etc/sensu/plugins/metrics-disk.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-disk-checks/master/bin/metrics-disk.rb
+
+# IO
 RUN wget -O /etc/sensu/plugins/iostat-extended-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/iostat-extended-metrics.rb
-RUN wget -O /etc/sensu/plugins/netif-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/network/netif-metrics.rb
+
+# Network
+RUN wget -O /etc/sensu/plugins/metrics-netif.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-network-checks/master/bin/metrics-netif.rb
 RUN wget -O /etc/sensu/plugins/metrics-netstat-tcp.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/network/metrics-netstat-tcp.rb
-RUN wget -O /etc/sensu/plugins/proc-status-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/proc-status-metrics.rb
 
 
+# Load Average
+RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb
 
+# misc..
+#RUN wget -O /etc/sensu/plugins/proc-status-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/proc-status-metrics.rb
 # metrics-cloudwatch.rb
 
 
 # does not work 
 # RUN wget -O /etc/sensu/mutators/graphite.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/mutators/graphite.rb
-
 
 
 
