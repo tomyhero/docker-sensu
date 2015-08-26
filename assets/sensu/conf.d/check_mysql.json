@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "custom-mysql-metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/custom-mysql-metrics.rb --ini /etc/sensu/my.conf",
+      "subscribers": [
+        "mysql"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    }
+  }
+}

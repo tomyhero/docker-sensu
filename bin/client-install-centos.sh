@@ -43,5 +43,14 @@ sudo wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.co
 sudo wget -O /etc/sensu/plugins/metrics-nginx.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-nginx/master/bin/metrics-nginx.rb
 
 
+
+# Mysql
+yum install -y mysql-devel gcc
+/opt/sensu/embedded/bin/gem install mysql2 inifile
+# XXX very owan SPEC
+cp ./assets/sensu/plugins/custom-mysql-metrics.rb /etc/sensu/plugins/custom-mysql-metrics.rb
+
+
+
 sudo chmod 775 /etc/sensu/plugins/*
 sudo chown -R sensu:sensu /etc/sensu
