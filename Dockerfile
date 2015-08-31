@@ -129,6 +129,10 @@ RUN /opt/sensu/embedded/bin/gem install mail
 RUN apt-get install -y bsd-mailx sendmail
 RUN wget -O /etc/sensu/handlers/mailer.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/handlers/notification/mailer.rb
 
+# Slack 
+
+RUN wget -O /etc/sensu/handlers/slack.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/handlers/notification/slack.rb
+
 
 
 

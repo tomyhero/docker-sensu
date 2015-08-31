@@ -9,11 +9,19 @@ GRAPHITE_HOST=${GRAPHITE_HOST:-localhost}
 GRAPHITE_PORT=${GRAPHITE_PORT:-2003}
 
 DASHBOARD_URL=${DASHBOARD_URL:-"http://localhost"}
+
+
 MAIL_FROM=${MAIL_FROM:-sensu@example.com}
 MAIL_TO=${MAIL_TO:-alert@example.com}
 SMTP_ADDRESS=${SMTP_ADDRESS:-localhost}
 SMTP_PORT=${SMTP_PORT:-25}
 SMTP_DOMAIN=${SMTP_DOMAIN:-localhost}
+
+SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-"http://localhost"}
+
+ON_SENSU_HANDLER_NOTIFICATION_MAILER=${ON_SENSU_HANDLER_NOTIFICATION_MAILER:-true}
+ON_SENSU_HANDLER_NOTIFICATION_SLACK=${ON_SENSU_HANDLER_NOTIFICATION_SLACK:-false}
+
 
 START_SMTP=${START_SMTP:-true}
 START_SENSU_CLIENT=${START_SENSU_CLIENT:-true}
@@ -47,6 +55,25 @@ sed s/{{SMTP_ADDRESS}}/$SMTP_ADDRESS/g -i /etc/sensu/conf.d/mailer.json
 sed s/{{SMTP_PORT}}/$SMTP_PORT/g -i /etc/sensu/conf.d/mailer.json
 sed s/{{SMTP_DOMAIN}}/$SMTP_DOMAIN/g -i /etc/sensu/conf.d/mailer.json
 
+sed s,{{SLACK_WEBHOOK_URL}},$SLACK_WEBHOOK_URL,g -i /etc/sensu/conf.d/slack.json
+
+# set handler 
+
+SENSU_CHECK_HANDLER="";
+
+if $ON_SENSU_HANDLER_NOTIFICATION_MAILER == true ; then 
+SENSU_CHECK_HANDLER="${SENSU_CHECK_HANDLER}\"mailer\",";
+fi
+
+if $ON_SENSU_HANDLER_NOTIFICATION_SLACK == true ; then 
+SENSU_CHECK_HANDLER="${SENSU_CHECK_HANDLER}\"slack\",";
+fi
+
+SENSU_CHECK_HANDLER="${SENSU_CHECK_HANDLER}\"default\"";
+
+sed s/{{SENSU_CHECK_HANDLER}}/$SENSU_CHECK_HANDLER/g -i /etc/sensu/conf.d/check_basic.json
+
+
 # Running Redis
 # ================
 update-rc.d redis-server defaults
@@ -73,7 +100,6 @@ fi
 
 if $START_SMTP == true ; then
 /etc/init.d/sendmail start
-update-rc.d sendmail defaults
 fi
 
 
