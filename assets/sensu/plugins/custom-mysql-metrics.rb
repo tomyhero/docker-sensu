@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 
-# NOT I move 'host' into ini file.
+# NOTE I move 'host' into ini file. and use own style shceme
 
 # https://github.com/sensu/sensu-community-plugins/blob/master/plugins/mysql/mysql-graphite.rb
 #

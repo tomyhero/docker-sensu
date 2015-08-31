@@ -118,8 +118,18 @@ RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com
 # does not work 
 # RUN wget -O /etc/sensu/mutators/graphite.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/mutators/graphite.rb
 
+# Proc
+RUN wget -O /etc/sensu/plugins/check-procs.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/processes/check-procs.rb
+
 # Nginx 
 RUN wget -O /etc/sensu/plugins/metrics-nginx.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-nginx/master/bin/metrics-nginx.rb
+
+# Email
+RUN /opt/sensu/embedded/bin/gem install mail
+RUN apt-get install -y bsd-mailx sendmail
+RUN wget -O /etc/sensu/handlers/mailer.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/handlers/notification/mailer.rb
+
+
 
 
 RUN chmod 775 /etc/sensu/plugins/*

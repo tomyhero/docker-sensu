@@ -6,7 +6,8 @@
       "subscribers": [
         "basic"
       ],
-      "handler": "default"
+      "notification":"HIGHT CPU Useage",
+      "handlers": ["default","mailer"]
     },
      "disk-usage": {
       "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-disk-usage.rb -t ext3,ext4",
@@ -14,7 +15,8 @@
         "basic"
       ],
       "interval": 60,
-      "handler": "default"
+      "notification":"HIGHT Disk Useage",
+      "handlers": ["default","mailer"]
     },
     "check-load": {
       "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-load.rb",
@@ -22,7 +24,8 @@
         "basic"
       ],
       "interval": 60,
-      "handler": "default"
+      "notification":"HIGHT Load Average",
+      "handlers": ["default","mailer"]
     },
     "memory": {
       "command": "/etc/sensu/plugins/check-memory.sh",
@@ -30,7 +33,19 @@
         "basic"
       ],
       "interval": 60,
-      "handler": "default"
+      "notification":"HIGHT Memory Useage",
+      "handlers": ["default","mailer"]
+    },
+  // for mail handler test use
+    "crond_process": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-procs.rb -p crond -C 1",
+      "interval": 60,
+      "subscribers": [
+        "cron"
+      ],
+      "handler": "mailer",
+      "notification":"Cron is not running",
+      "occurrences": 2
     }
   }
 }

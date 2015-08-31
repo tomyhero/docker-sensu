@@ -1,0 +1,10 @@
+{
+  "mailer": {
+    "admin_gui": "{{DASHBOARD_URL}}",
+    "mail_from": "{{MAIL_FROM}}",
+    "mail_to": "{{MAIL_TO}}",
+    "smtp_address": "{{SMTP_ADDRESS}}",
+    "smtp_port": "{{SMTP_PORT}}",
+    "smtp_domain": "{{SMTP_DOMAIN}}"
+  }
+}
