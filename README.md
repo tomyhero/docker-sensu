@@ -1,10 +1,20 @@
 DOCKER SENSU 
 ===========
 
+REQUIREMENT
+---
+
+* https://github.com/tomyhero/docker-sensu-dashboard-graphite
+
+
+SETAUP
+---
 
 ```
 
-docker pull github.com/tomyhero/docker-sensu
+get clone https://github.com/tomyhero/docker-sensu.git
+cd docker-sensu
+docker build -t tomyhero/sensu .
 
 docker run --name sensu -it -d \
 	-p 5672:5672 \
