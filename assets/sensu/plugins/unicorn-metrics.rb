@@ -26,8 +26,8 @@ json = JSON.parse( File.read("/etc/sensu/unicorn-metrics.json") )
 
 json["entries"].each{|item|
 	stats = Raindrops::Linux.unix_listener_stats([item["socket"]])[item["socket"]]
-		output "#{item["name"]}.active", stats.active
-		output "#{item["name"]}.queued", stats.queued
+        output "#{Socket.gethostname}.unicorn.#{item["name"]}.active", stats.active
+        output "#{Socket.gethostname}.unicorn.#{item["name"]}.queued", stats.queued
 }
 
 ok
