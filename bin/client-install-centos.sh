@@ -51,6 +51,11 @@ yum install -y mysql-devel gcc
 cp ./assets/sensu/plugins/custom-mysql-metrics.rb /etc/sensu/plugins/custom-mysql-metrics.rb
 
 
+# unicorn plugin
+/opt/sensu/embedded/bin/gem install raindrops
+
+
+
 
 sudo chmod 775 /etc/sensu/plugins/*
 sudo chown -R sensu:sensu /etc/sensu

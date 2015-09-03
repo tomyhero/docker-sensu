@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "unicorn-metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/unicorn-metrics.rb",
+      "subscribers": [
+        "unicorn"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    }
+  }
+}

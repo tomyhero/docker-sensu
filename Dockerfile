@@ -135,7 +135,6 @@ RUN wget -O /etc/sensu/handlers/slack.rb https://raw.githubusercontent.com/sensu
 
 
 
-
 RUN chmod 775 /etc/sensu/plugins/*
 RUN chown -R sensu:sensu /etc/sensu
 
