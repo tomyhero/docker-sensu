@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "metrics-golang": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-golang.rb -u http://localhost/__status",
+      "subscribers": [
+        "golang"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    }
+    }
+}
