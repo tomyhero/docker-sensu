@@ -88,27 +88,45 @@ RUN wget -O /etc/sensu/plugins/check-memory.sh https://raw.githubusercontent.com
 #--
 
 # CPU
-RUN wget -O /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-pcnt-usage-metrics.rb
+#RUN wget -O /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-pcnt-usage-metrics.rb
+RUN wget -O /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-cpu-checks/master/bin/metrics-cpu-pcnt-usage.rb
 
 # MEMORY
-RUN wget -O /etc/sensu/plugins/memory-metrics-percent.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics-percent.rb
-RUN wget -O /etc/sensu/plugins/memory-metrics.rb  https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb
+#RUN wget -O /etc/sensu/plugins/memory-metrics-percent.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics-percent.rb
+RUN wget -O /etc/sensu/plugins/memory-metrics-percent.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-memory-checks/master/bin/metrics-memory-percent.rb
+
+#RUN wget -O /etc/sensu/plugins/memory-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb
+RUN wget -O /etc/sensu/plugins/memory-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-memory-checks/master/bin/metrics-memory.rb
+
+
+
 
 # DISK
-RUN wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-capacity-metrics.rb
+#RUN wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-capacity-metrics.rb
+RUN wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-disk-checks/master/bin/metrics-disk-capacity.rb
+
+
 #RUN wget -O /etc/sensu/plugins/metrics-disk-usage.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-disk-checks/master/bin/metrics-disk-usage.rb
 #RUN wget -O /etc/sensu/plugins/metrics-disk.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-disk-checks/master/bin/metrics-disk.rb
 
 # IO
-RUN wget -O /etc/sensu/plugins/iostat-extended-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/iostat-extended-metrics.rb
+#RUN wget -O /etc/sensu/plugins/iostat-extended-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/iostat-extended-metrics.rb
+RUN wget -O /etc/sensu/plugins/iostat-extended-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-io-checks/master/bin/metrics-iostat-extended.rb
+
 
 # Network
 RUN wget -O /etc/sensu/plugins/metrics-netif.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-network-checks/master/bin/metrics-netif.rb
-RUN wget -O /etc/sensu/plugins/metrics-netstat-tcp.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/network/metrics-netstat-tcp.rb
+
+
+
+
+#RUN wget -O /etc/sensu/plugins/metrics-netstat-tcp.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/network/metrics-netstat-tcp.rb
+RUN wget -O /etc/sensu/plugins/metrics-netstat-tcp.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-network-checks/master/bin/metrics-netstat-tcp.rb
 
 
 # Load Average
-RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb
+#RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb
+RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-load-checks/master/bin/metrics-load.rb
 
 # misc..
 #RUN wget -O /etc/sensu/plugins/proc-status-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/proc-status-metrics.rb
@@ -119,7 +137,8 @@ RUN wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com
 # RUN wget -O /etc/sensu/mutators/graphite.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/mutators/graphite.rb
 
 # Proc
-RUN wget -O /etc/sensu/plugins/check-procs.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/processes/check-procs.rb
+#RUN wget -O /etc/sensu/plugins/check-procs.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/processes/check-procs.rb
+RUN wget -O /etc/sensu/plugins/check-procs.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-process-checks/master/bin/check-process.rb
 
 # Nginx 
 RUN wget -O /etc/sensu/plugins/metrics-nginx.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-nginx/master/bin/metrics-nginx.rb
@@ -127,11 +146,13 @@ RUN wget -O /etc/sensu/plugins/metrics-nginx.rb https://raw.githubusercontent.co
 # Email
 RUN /opt/sensu/embedded/bin/gem install mail
 RUN apt-get install -y bsd-mailx sendmail
-RUN wget -O /etc/sensu/handlers/mailer.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/handlers/notification/mailer.rb
+#RUN wget -O /etc/sensu/handlers/mailer.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/handlers/notification/mailer.rb
+RUN wget -O /etc/sensu/handlers/mailer.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-mailer/master/bin/handler-mailer.rb
 
 # Slack 
 
-RUN wget -O /etc/sensu/handlers/slack.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/handlers/notification/slack.rb
+#RUN wget -O /etc/sensu/handlers/slack.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/handlers/notification/slack.rb
+RUN wget -O /etc/sensu/handlers/slack.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-slack/master/bin/handler-slack.rb
 
 
 

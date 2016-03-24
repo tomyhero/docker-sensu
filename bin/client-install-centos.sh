@@ -19,25 +19,25 @@ sudo wget -O /etc/sensu/plugins/check-load.rb https://raw.githubusercontent.com/
 sudo wget -O /etc/sensu/plugins/check-memory.sh https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-memory-checks/master/bin/check-memory.sh
 
 # CPU
-sudo wget -O /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-pcnt-usage-metrics.rb
+sudo wget -O /etc/sensu/plugins/cpu-pcnt-usage-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-cpu-checks/master/bin/metrics-cpu-pcnt-usage.rb
 
 # MEMORY
-sudo wget -O /etc/sensu/plugins/memory-metrics-percent.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics-percent.rb
-sudo wget -O /etc/sensu/plugins/memory-metrics.rb  https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb
+sudo wget -O /etc/sensu/plugins/memory-metrics-percent.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-memory-checks/master/bin/metrics-memory-percent.rb
+sudo wget -O /etc/sensu/plugins/memory-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-memory-checks/master/bin/metrics-memory.rb
 
 # DISK
-sudo wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-capacity-metrics.rb
+sudo wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-disk-checks/master/bin/metrics-disk-capacity.rb
 
 # IO
-sudo wget -O /etc/sensu/plugins/iostat-extended-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/iostat-extended-metrics.rb
+sudo wget -O /etc/sensu/plugins/iostat-extended-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-io-checks/master/bin/metrics-iostat-extended.rb
 
 # Network
 sudo wget -O /etc/sensu/plugins/metrics-netif.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-network-checks/master/bin/metrics-netif.rb
-sudo wget -O /etc/sensu/plugins/metrics-netstat-tcp.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/network/metrics-netstat-tcp.rb
+sudo wget -O /etc/sensu/plugins/metrics-netstat-tcp.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-network-checks/master/bin/metrics-netstat-tcp.rb
 
 
 # Load Average
-sudo wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb
+sudo wget -O /etc/sensu/plugins/load-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-load-checks/master/bin/metrics-load.rb
 
 # Nginx 
 sudo wget -O /etc/sensu/plugins/metrics-nginx.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-nginx/master/bin/metrics-nginx.rb

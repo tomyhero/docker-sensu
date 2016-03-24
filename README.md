@@ -12,7 +12,7 @@ SETAUP
 
 ```
 
-get clone https://github.com/tomyhero/docker-sensu.git
+git clone https://github.com/tomyhero/docker-sensu.git
 cd docker-sensu
 docker build -t tomyhero/sensu .
 
