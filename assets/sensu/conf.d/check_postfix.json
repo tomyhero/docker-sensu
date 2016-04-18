@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "metrics-mailq": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-mailq.rb",
+      "subscribers": [
+        "postfix"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    },
+    "check-mail-delay": {
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mail-delay.rb -w 500 -c 1000",
+      "interval": 60,
+      "subscribers": [
+        "postfix"
+      ],
+      "notification":"Mail Delay Check",
+      "handlers": ["mailer","slack","default"]
+     }
+  }
+}

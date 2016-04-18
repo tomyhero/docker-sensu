@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "metrics-apache-graphite": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-apache-graphite.rb",
+      "subscribers": [
+        "apache"
+      ],
+      "interval": 60,
+      "handler": "graphite"
+    }
+  }
+}

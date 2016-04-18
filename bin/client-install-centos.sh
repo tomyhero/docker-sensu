@@ -56,6 +56,13 @@ cp ./assets/sensu/plugins/custom-mysql-metrics.rb /etc/sensu/plugins/custom-mysq
 /opt/sensu/embedded/bin/gem install raindrops
 
 
+# postfix
+sudo wget -O /etc/sensu/plugins/check-mail-delay.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-postfix/master/bin/check-mail-delay.rb
+sudo wget -O /etc/sensu/plugins/metrics-mailq.rb  https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-postfix/master/bin/metrics-mailq.rb
+
+# apache
+sudo wget -O /etc/sensu/plugins/metrics-apache-graphite.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-apache/master/bin/metrics-apache-graphite.rb
+
 
 
 sudo chmod 775 /etc/sensu/plugins/*
