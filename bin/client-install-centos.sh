@@ -26,7 +26,8 @@ sudo wget -O /etc/sensu/plugins/memory-metrics-percent.rb https://raw.githubuser
 sudo wget -O /etc/sensu/plugins/memory-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-memory-checks/master/bin/metrics-memory.rb
 
 # DISK
-sudo wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-disk-checks/master/bin/metrics-disk-capacity.rb
+#sudo wget -O /etc/sensu/plugins/disk-capacity-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-disk-checks/master/bin/metrics-disk-capacity.rb
+cp ./assets/sensu/plugins/disk-capacity-metrics.rb /etc/sensu/plugins/disk-capacity-metrics.rb
 
 # IO
 sudo wget -O /etc/sensu/plugins/iostat-extended-metrics.rb https://raw.githubusercontent.com/sensu-plugins/sensu-plugins-io-checks/master/bin/metrics-iostat-extended.rb
